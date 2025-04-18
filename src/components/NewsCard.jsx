@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Bookmark, BookmarkCheck } from 'lucide-react';
 import { useBookmark } from './useBookmark';
+import '../styles/NewsCard.css'; 
 import '../styles/Bookmarks.css';
 
 const NewsCard = ({ article }) => {
@@ -24,7 +25,7 @@ const NewsCard = ({ article }) => {
       </div>
 
       <div className="news-content">
-        <p className="source-date">
+        <p className="source-date" style={{marginBottom:'auto'}}>
           {article.source.name} | {new Date(article.publishedAt).toLocaleDateString()}
         </p>
         <h3>{article.title}</h3>

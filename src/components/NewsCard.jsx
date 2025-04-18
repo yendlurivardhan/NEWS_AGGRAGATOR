@@ -15,7 +15,7 @@ const NewsCard = ({ article }) => {
   };
 
   return (
-    <div className="news-card">
+    <div className="news-card" style={{width:'350px'}}>
       <div className="image-container">
         <img
           src={imgSrc}
@@ -25,7 +25,7 @@ const NewsCard = ({ article }) => {
       </div>
 
       <div className="news-content">
-        <p className="source-date" style={{marginBottom:'auto'}}>
+        <p className="source-date" style={{marginTop:'10px'}}>
           {article.source.name} | {new Date(article.publishedAt).toLocaleDateString()}
         </p>
         <h3>{article.title}</h3>
@@ -35,7 +35,9 @@ const NewsCard = ({ article }) => {
           className='read-more'
           href={article.url}
            target="_blank" 
-           rel="noopener noreferrer" >
+           rel="noopener noreferrer" 
+           style={{marginBottom:'0px'}}
+           >
             Read More →</a>
           <div 
           className="bookmark-icon"

@@ -80,7 +80,9 @@ const Search = () => {
       {error && <p className="error">{error}</p>}
 
       {/* News Articles Grid */}
-      <div className="news-grid">
+      <div className="news-grid"
+      style={{width:'350px'}}
+      >
         {articles.length > 0 ? (
           articles.map((article, index) => (
             <div key={index} className="news-card">
@@ -89,12 +91,14 @@ const Search = () => {
               )}
 
               {/* Source + Date directly under image */}
-              <p className="source-date">
+              <p className="source-date"
+              style={{marginRight:'auto'}}
+              >
                 {article.source.name} &nbsp;|&nbsp;{" "}
                 {new Date(article.publishedAt).toLocaleDateString()}
               </p>
 
-              <h3>{article.title}</h3>
+              <h3 >{article.title}</h3>
               <p>
                 {article.description
                   ? article.description.slice(0, 100) + "..."
@@ -107,7 +111,7 @@ const Search = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="read-more-link"
-                  
+                  style={{marginRight:'auto'}}
                 >
                   Read More →
                 </a>

@@ -1,24 +1,41 @@
+/* Overall page padding */
 .search-page {
   padding: 24px;
 }
 
+/* Search form with input and button */
 .search-form {
   margin-top: 16px;
   display: flex;
   gap: 10px;
+  align-items: center; /* Align input and button horizontally */
 }
 
+/* Search input style */
 .search-input {
   padding: 10px;
   font-size: 16px;
   width: 800px;
   margin-right: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
-.search-input,.sort-options{
+/* Sort options styling */
+.sort-options {
   display: inline-block;
+  margin-top: 16px;
 }
 
+.sort-options select {
+  padding: 10px;
+  font-size: 16px;
+  width: 150px; /* Adjust width for consistency */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Button styling */
 .search-form button {
   padding: 10px 16px;
   font-size: 16px;
@@ -29,27 +46,29 @@
   cursor: pointer;
 }
 
-.sort-options {
-  margin-top: 16px;
-}
-
+/* News cards container (grid layout for side by side) */
 .news-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  margin-top: 30px;
+  display: flex; /* Flex container for side by side alignment */
+  flex-wrap: wrap; /* Allows wrapping of cards to the next line */
+  gap: 24px; /* Space between cards */
+  justify-content: flex-start; /* Align cards to the left */
+  padding: 10px;
 }
 
+/* Individual news card */
 .news-card {
+  width: 100%; /* Default to full width on mobile */
+  max-width: 300px; /* Max width for each card */
+  border-radius: 16px;
   background-color: #fff;
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* News card image */
 .news-card img {
   width: 100%;
   height: 180px;
@@ -58,11 +77,14 @@
   margin-bottom: 10px;
 }
 
+/* Title styling */
 .news-card h3 {
   font-size: 18px;
   margin-bottom: 8px;
+  color: #333; /* Default text color */
 }
 
+/* Source and date text */
 .news-card .source-date {
   font-weight: 500;
   font-size: 15px;
@@ -70,11 +92,14 @@
   margin-bottom: 10px;
 }
 
+/* Description text */
 .news-card p {
   font-size: 15px;
   margin-bottom: 12px;
+  color: #555;
 }
 
+/* Card footer alignment */
 .card-footer {
   display: flex;
   justify-content: space-between;
@@ -82,34 +107,45 @@
   margin-top: 10px;
 }
 
+/* Read more link */
 .read-more-link {
-  color:black;
+  color: #0077cc; /* Match button color */
   text-decoration: none;
   font-weight: bold;
-  justify-content: space-between;
+  transition: color 0.3s ease;
 }
 
+.read-more-link:hover {
+  color: #005fa3; /* Darker blue on hover */
+}
+
+/* Bookmark icon link */
 .BookMarkers-link {
   color: #333;
   transition: color 0.3s ease;
 }
 
-.read-more-link {
-  color: black; /* or any color you use in light mode */
+.BookMarkers-link:hover {
+  color: #0077cc; /* Change to match theme */
 }
 
-/* Dark mode color override */
-body.dark-mode .read-more-link{
+/* Dark mode color overrides */
+body.dark-mode .read-more-link {
   color: #ffffff; /* white text in dark mode */
 }
 
-/* Default light mode */
-.BookMarkers-link svg {
-  color: black;
-  transition: color 0.3s ease;
+body.dark-mode .BookMarkers-link svg {
+  color: white;
 }
 
-/* Dark mode style */
-body.dark-mode .BookMarkers-link svg {
-  color: white; 
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+  .news-grid {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+    gap: 16px; /* Smaller gap between cards */
+  }
+
+  .news-card {
+    width: 100%; /* Make cards take full width on smaller screens */
+  }
 }

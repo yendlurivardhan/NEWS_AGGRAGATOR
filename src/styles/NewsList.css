@@ -5,6 +5,7 @@
   padding: 0 16px; /* equal left and right padding */
   box-sizing: border-box;
   margin-top: 50px;
+  margin-right: 30px;
 }
 
 
@@ -62,14 +63,3 @@
 
 
 
-/* Container to add padding/margin if needed */
-.news-list-container {
-  padding: 1rem 1.5rem;
-}
-
-/* Responsive grid for cards */
-.news-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-}

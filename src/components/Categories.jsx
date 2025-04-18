@@ -1,25 +1,34 @@
-import React from "react";
+import React from 'react';
+import '../styles/Categories.css';
+import {
+  Globe, Briefcase, MonitorSmartphone, FlaskConical,
+  Heart, Trophy, Clapperboard
+} from 'lucide-react';
 
-const categories = ["General", "Business", "Entertainment", "Health", "Science", "Sports", "Technology"];
+const iconMap = {
+  General: <Globe size={16} />,
+  Business: <Briefcase size={16} />,
+  Technology: <MonitorSmartphone size={16} />,
+  Science: <FlaskConical size={16} />,
+  Health: <Heart size={16} />,
+  Sports: <Trophy size={16} />,
+  Entertainment: <Clapperboard size={16} />,
+};
+<br></br>
+function Categories({ onCategoryClick, selectedCategory }) {
+  const categories = Object.keys(iconMap);
 
-function Categories({ selectedCategory, setSelectedCategory }) {
   return (
-    <div style={{ padding: "10px", background: "#f4f4f4", textAlign: "center" }}>
-      {categories.map((category) => (
+    <div className="categories">
+
+      {categories.map((category, index) => (
         <button
-          key={category}
-          onClick={() => setSelectedCategory(category)}
-          style={{
-            margin: "5px",
-            padding: "10px 15px",
-            cursor: "pointer",
-            backgroundColor: selectedCategory === category ? "blue" : "gray",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-          }}
+          key={index}
+          className={`category-btn ${selectedCategory === category ? 'active' : ''}`}
+          onClick={() => onCategoryClick(category)}
         >
-          {category}
+          {iconMap[category]}
+          <span style={{ marginLeft: '6px' }}>{category}</span>
         </button>
       ))}
     </div>

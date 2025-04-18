@@ -1,0 +1,61 @@
+/* Default light mode styles */
+body {
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .navbar {
+    background-color: white;
+    color: black;
+  }
+  
+  button {
+    background-color: #f0f0f0;
+    color: black;
+    
+  }
+  
+  /* Dark mode styles */
+  body.dark-mode {
+    background-color: #121212;  /* Dark background */
+    color: white;  /* Light text */
+  }
+  
+  body.dark-mode .navbar {
+    background-color: black;  /* Dark navbar */
+  }
+  
+  body.dark-mode button {
+    background-color: black;  /* Dark button background */
+    color: white;
+  }
+ 
+  /* News Cards in Dark Mode */
+  body.dark-mode .news-card {
+    background-color: #1f1f1f;
+    color: white;
+    border: 1px solid black;
+  }
+  
+  body.dark-mode .news-card a {
+    color: white;  /* Light blue links */
+  }
+  
+  
+  body.dark-mode .Header h1 {
+    color:white;  /* Accent color for header */
+  }
+  /* Day mode (default) */
+.read-more-link {
+    color:black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .BookMarkers-link svg {
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  

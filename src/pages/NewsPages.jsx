@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const API_KEY = "40039d2c5a2e4a7b9ee3d1bfea2aaec8";
+const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 
-const NewsPage = ({ category = "general" }) => {
+const NewsPage = () => {
+  const { category } = useParams();  // ✅ get category from URL
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
         const response = await axios.get(
-          `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${API_KEY}`
+          `https://newsapi.org/v2/top-headlines?country=us&category=${category || 'general'}&apiKey=${API_KEY}`
         );
         setArticles(response.data.articles);
       } catch (error) {
@@ -23,7 +25,7 @@ const NewsPage = ({ category = "general" }) => {
 
   return (
     <div>
-      <h2>{category.toUpperCase()} NEWS</h2>
+      <h2>{(category || 'general').toUpperCase()} NEWS</h2>
       <ul>
         {articles.map((article, index) => (
           <li key={index}>

@@ -1,13 +1,50 @@
+import React, { useState } from 'react';
+import { Bookmark, BookmarkCheck } from 'lucide-react';
+import { useBookmark } from './useBookmark';
+import '../styles/Bookmarks.css';
+
 const NewsCard = ({ article }) => {
-    return (
-        <div className="news-card">
-            {article.urlToImage && <img src={article.urlToImage} alt="news" />}
-            <h3>{article.title}</h3>
-            <p>{article.source.name} - {new Date(article.publishedAt).toLocaleDateString()}</p>
-            <p>{article.description ? article.description.substring(0, 100) + "..." : "No description available"}</p>
-            <a href={article.url} target="_blank" rel="noopener noreferrer">Read More</a>
+  const { bookmarks, addBookmark, removeBookmark } = useBookmark();
+  const [imgSrc, setImgSrc] = useState(article.urlToImage || '/camera-off.png');
+
+  const isBookmarked = bookmarks.some((a) => a.url === article.url);
+
+  const toggleBookmark = () => {
+    isBookmarked ? removeBookmark(article.url) : addBookmark(article);
+  };
+
+  return (
+    <div className="news-card">
+      <div className="image-container">
+        <img
+          src={imgSrc}
+          onError={() => setImgSrc('/camera-off.png')}
+          alt="Article"
+        />
+      </div>
+
+      <div className="news-content">
+        <p className="source-date">
+          {article.source.name} | {new Date(article.publishedAt).toLocaleDateString()}
+        </p>
+        <h3>{article.title}</h3>
+        <p>{article.description}</p>
+        <div className="news-footer">
+          <a 
+          className='read-more'
+          href={article.url}
+           target="_blank" 
+           rel="noopener noreferrer" >
+            Read More →</a>
+          <div 
+          className="bookmark-icon"
+           onClick={toggleBookmark}>
+            {isBookmarked ? <BookmarkCheck size={20} /> : <Bookmark size={20} />}
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default NewsCard;

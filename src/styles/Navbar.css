@@ -1,0 +1,53 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 8px;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.Header{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.Header h1 {
+  margin-left: 20px;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 16px;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.news-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1 rem;
+}
+
+.read-more{
+  color: black;
+}
+
+body.dark-mode .bookmark-icon{
+  color: white;
+}
+

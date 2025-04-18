@@ -1,20 +1,55 @@
-import { Link } from "react-router-dom";
-import { FaHome, FaSearch } from "react-icons/fa";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { Home, Search as SearchIcon, Bookmark, Newspaper } from "lucide-react";
+import DayMode from "../pages/Day_Mode"; // Import the DayMode component
+import "../styles/Navbar.css";
 
-const Navbar = () => {
+function Navbar() {
+  const navigate = useNavigate(); // Hook to navigate programmatically
+
+  // Navigate to the Home page
+  const handleHomeClick = () => {
+    navigate("/");
+  };
+
+  // Navigate to the Search page
+  const handleSearchClick = () => {
+    navigate("/search");
+  };
+
+  // ✅ Navigate to the Bookmarks page
+  const handleBookmarkClick = () => {
+    navigate("/bookmarks");
+  };
+
   return (
-    <nav style={{ display: "flex", justifyContent: "space-between", padding: "10px", background: "#333", color: "white" }}>
-      <h1>News App</h1>
-      <div>
-        <Link to="/" style={{ color: "white", margin: "0 10px", textDecoration: "none" }}>
-          <FaHome /> Home
-        </Link>
-        <Link to="/search" style={{ color: "white", margin: "0 10px", textDecoration: "none" }}>
-          <FaSearch /> Search
-        </Link>
+    <div className="navbar">
+      <div className="Header">
+        <h1>
+          <Newspaper size={24} style={{ marginRight: "8px", verticalAlign: "middle" }} />
+          News Aggregator
+        </h1>
       </div>
-    </nav>
+
+      <div className="navbar-right">
+        <button className="nav-icon" onClick={handleHomeClick}>
+          <Home size={18} /> <span>Home</span>
+        </button>
+
+        <button className="nav-icon" onClick={handleSearchClick}>
+          <SearchIcon size={18} /> <span>Search</span>
+        </button>
+
+        {/* ✅ Bookmarks button with navigation */}
+        <button className="nav-icon" onClick={handleBookmarkClick}>
+          <Bookmark size={18} /> <span>Bookmarks</span>
+        </button>
+
+        {/* Dark/Light mode toggle */}
+        <DayMode />
+      </div>
+    </div>
   );
-};
+}
 
 export default Navbar;

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Categories.css';
+import '../styles/categories.css'
 import {
   Globe, Briefcase, MonitorSmartphone, FlaskConical,
   Heart, Trophy, Clapperboard

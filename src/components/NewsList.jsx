@@ -4,7 +4,9 @@ import '../styles/NewsList.css';  // Make sure this contains the grid styles
 
 function NewsList({ articles }) {
   return (
-    <div className="news-list-container">
+    <div className="news-list-container"
+    
+    >
       {articles.length > 0 ? (
         <div className="news-list">
           {articles.map((article, index) => (

@@ -63,7 +63,6 @@ const Search = () => {
 
       {/* Sort Options */}
       <div className="sort-options">
-        
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
@@ -80,49 +79,50 @@ const Search = () => {
       {error && <p className="error">{error}</p>}
 
       {/* News Articles Grid */}
-      <div className="news-grid"
-      style={{width:'350px'}}
-      >
+      <div className="news-grid">
         {articles.length > 0 ? (
           articles.map((article, index) => (
             <div key={index} className="news-card">
-              {article.urlToImage && (
-                <img src={article.urlToImage} alt={article.title} />
-              )}
+              <div className="image-container">
+                {article.urlToImage ? (
+                  <img src={article.urlToImage} alt={article.title} />
+                ) : (
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      backgroundColor: "#ddd",
+                    }}
+                  />
+                )}
+              </div>
 
-              {/* Source + Date directly under image */}
-              <p className="source-date"
-              style={{marginRight:'auto'}}
-              >
-                {article.source.name} &nbsp;|&nbsp;{" "}
-                {new Date(article.publishedAt).toLocaleDateString()}
-              </p>
+              <div className="news-content">
+                <p className="source-date">
+                  {article.source.name} &nbsp;|&nbsp;{" "}
+                  {new Date(article.publishedAt).toLocaleDateString()}
+                </p>
 
-              <h3 >{article.title}</h3>
-              <p>
-                {article.description
-                  ? article.description.slice(0, 100) + "..."
-                  : "No description available"}
-              </p>
+                <h3>{article.title}</h3>
+                <p>
+                  {article.description
+                    ? article.description.slice(0, 100) + "..."
+                    : "No description available"}
+                </p>
 
-              <div className="card-footer">
-                <a
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="read-more-link"
-                  style={{marginRight:'auto'}}
-                >
-                  Read More →
-                </a>
-                <a
-                  className="BookMarkers-link"
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Bookmark size={18} />
-                </a>
+                <div className="news-footer">
+                  <a
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="read-more"
+                  >
+                    Read More →
+                  </a>
+                  <button className="bookmark-icon" title="Bookmark">
+                    <Bookmark size={18} />
+                  </button>
+                </div>
               </div>
             </div>
           ))

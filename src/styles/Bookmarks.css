@@ -58,7 +58,9 @@
   transition: color 0.2s ease;
 }
 
-
+body.dark-mode .bookmark-subtitle{
+  color:white;
+}
 
 /* Responsive fallback */
 @media (max-width: 1024px) {

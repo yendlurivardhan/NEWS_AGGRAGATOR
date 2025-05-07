@@ -56,7 +56,7 @@
 
 .search-card {
   flex: 1 1 calc(33.33% - 30px); /* 3 cards per row, accounting for gap */
-  max-width: calc(33.33% - 30px);
+  max-width: calc(33.33% - 30px); /* Ensures that the card doesn't exceed 33.33% width */
   height: 450px;
   display: flex;
   flex-direction: column;
@@ -67,8 +67,10 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   border: 1px solid #eee;
-  
+  width: 380px; /* The card width is fixed */
+  max-width: 500px; /* Ensures card doesn't exceed 500px */
 }
+
 
 .search-card:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -80,6 +82,7 @@
   object-fit: cover;
   display: block;
 }
+
 
 
 .news-content h3 {
@@ -140,6 +143,12 @@
   color: #333;
   transition: color 0.3s ease;
 }
+
+.bookmark-icon{
+  background-color: transparent; 
+  
+}
+
 
 .BookMarkers-link:hover {
   color: #0077cc; /* Change to match theme */

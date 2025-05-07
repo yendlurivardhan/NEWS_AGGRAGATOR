@@ -4,8 +4,8 @@ import { useBookmark } from './useBookmark';
 import '../styles/NewsCard.css'; 
 
 const NewsCard = ({ article }) => {
-  const { bookmarks, addBookmark, removeBookmark } = useBookmark();
   const [imgSrc, setImgSrc] = useState(article.urlToImage || '/camera-off.png');
+  const { bookmarks, addBookmark, removeBookmark } = useBookmark();
 
   const isBookmarked = bookmarks.some((item) => item.url === article.url);
 

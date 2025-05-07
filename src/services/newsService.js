@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_KEY = "873d144b75204821add8e592790785ad"
+const API_KEY = "29a52a5ac6bf35bb06aac56431f3fa2d"
 const BASE_URL = "https://newsapi.org/v2";
 
 // Fetch top headlines

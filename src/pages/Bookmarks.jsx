@@ -11,7 +11,7 @@ const Bookmarks = () => {
     <div className="bookmarks-page" >
       <div className='Bookmarks-header' >
       <h1 className="bookmark-title">Bookmarked Articles</h1>
-      <p className="bookmark-subtitle">Your saved articles for later reading.</p>
+      <p className="bookmark-subtitle">Your saved articles for later reading...</p>
       </div>
       {bookmarks && bookmarks.length > 0 ? (
         <div className="bookmarks-grid">

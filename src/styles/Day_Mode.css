@@ -70,3 +70,10 @@ body.dark-mode .Header h1 {
   transition: color 0.3s ease;
 }
 
+.mode-toggle-btn{
+  background-color: transparent; 
+}
+
+body.dark-mode .bookmark-icon{
+  background-color: transparent; 
+}

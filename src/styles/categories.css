@@ -1,8 +1,10 @@
 .categories {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 6px;
   margin-bottom: 30px;
+  margin-left: 10px;
+  margin-left: 20px;
 }
 
 .category-btn {
@@ -10,17 +12,15 @@
   align-items: center;
   border: none;
   border-radius: 30px;
-  padding: 14px 18px;
-  background-color: #f3f4f6;
-  font-size: 14px;
+  padding: 10px 12px;
+  background-color:transparent;
+  font-size: 15px;
   cursor: pointer;
   transition: background-color 0.2s;
-  margin-top: auto;
+  margin-top: 35px;
+
 }
 
-.category-btn:hover {
-  background-color: #e5e7eb;
-}
 
 .category-btn.active {
   background-color: #000;

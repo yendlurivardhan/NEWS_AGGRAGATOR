@@ -1,12 +1,12 @@
 import React from 'react';
 import '../styles/categories.css'
 import {
-  Globe, Briefcase, MonitorSmartphone, FlaskConical,
+  NewspaperIcon, Briefcase, MonitorSmartphone, FlaskConical,
   Heart, Trophy, Clapperboard
 } from 'lucide-react';
 
 const iconMap = {
-  General: <Globe size={16} />,
+  General: <NewspaperIcon size={16} />,
   Business: <Briefcase size={16} />,
   Technology: <MonitorSmartphone size={16} />,
   Science: <FlaskConical size={16} />,

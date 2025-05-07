@@ -1,54 +1,74 @@
-/* Bookmarks.css */
+.bookmarks-page {
+  padding: 20px;
+}
 
-.news-card {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    max-width: 400px;
-    transition: transform 0.2s ease;
-    justify-content: space-between;
-    gap: 1rem;
-    align-items: center;
-  }
+.bookmark-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
 
-  
-  .news-card img {
-    width: 100%;
-    height: 240px;
-    border-radius: 8px;
-    object-fit: cover;
+.bookmark-subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.bookmarks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Always 3 columns */
+  padding: 1px;
+  width:380px;
+  max-width: 500px; 
+}
+
+
+/* NewsCard Styling */
+.bookmarks-grid .news-card img {
+  width: 100%;
+  height: 240px;
+  border-radius: 8px 8px 0 0;
+  object-fit: cover;
+}
+
+.news-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.news-card-description {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.news-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.bookmark-icon {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: black;
+  transition: color 0.2s ease;
+}
+
+
+
+/* Responsive fallback */
+@media (max-width: 1024px) {
+  .bookmarks-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .news-card-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #333;
+}
+
+@media (max-width: 600px) {
+  .bookmarks-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .news-card-description {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.4;
-  }
-  
-  .news-card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    color: #888;
-  }
-  
-  .bookmark-icon {
-    cursor: pointer;
-    font-size: 1.2rem;
-    color: black;
-    transition: color 0.2s ease;
-  }
-  
-  
+}

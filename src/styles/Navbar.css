@@ -5,6 +5,7 @@
   padding: 4px 8px;
   background-color: #fff;
   border-bottom: 1px solid #e5e7eb;
+  
 }
 
 .Header{
@@ -21,7 +22,9 @@
 
 .navbar-right {
   display: flex;
-  gap: 16px;
+  gap: px;
+  font-size: 1rem;
+  font: 100px;
 }
 
 .nav-icon {
@@ -49,5 +52,5 @@
 
 body.dark-mode .bookmark-icon{
   color: white;
+  background-color: black;
 }
-

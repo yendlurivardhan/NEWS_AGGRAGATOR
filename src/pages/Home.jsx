@@ -34,7 +34,7 @@ function Home() {
  return (
   <div className="home-container">
     {/* ✅ This is the top heading section */}
-    <div className="headlines-header">
+    <div className="headlines-header" style={{marginLeft:"20px"}}>
       <h1>Top Headlines</h1>
       <p>Stay informed with the latest news from around the world.</p>
     </div>

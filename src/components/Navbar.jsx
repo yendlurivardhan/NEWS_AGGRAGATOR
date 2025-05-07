@@ -26,7 +26,7 @@ function Navbar() {
     <div className="navbar">
       <div className="Header">
         <h1>
-          <Newspaper size={24} style={{ marginRight: "8px", verticalAlign: "middle" }} />
+          <Newspaper size={24} style={{ marginRight: "6px", verticalAlign: "middle" }} />
           News Aggregator
         </h1>
       </div>
@@ -40,12 +40,10 @@ function Navbar() {
           <SearchIcon size={18} /> <span>Search</span>
         </button>
 
-        {/* ✅ Bookmarks button with navigation */}
         <button className="nav-icon" onClick={handleBookmarkClick}>
           <Bookmark size={18} /> <span>Bookmarks</span>
         </button>
-
-        {/* Dark/Light mode toggle */}
+        
         <DayMode />
       </div>
     </div>

@@ -15,7 +15,7 @@
 .search-input {
   padding: 10px;
   font-size: 16px;
-  width: 800px;
+  width: 1000px;
   margin-right: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -46,21 +46,32 @@
   cursor: pointer;
 }
 
-.news-grid {
+.search-grid {
   display: flex; /* Flex container to arrange the cards horizontally */
   flex-wrap: wrap; /* Allow cards to wrap to the next line if necessary */
-  gap: 24px; /* Space between cards */
+  gap: 30px; /* Space between cards */
   justify-content: flex-start; /* Align items to the left */
   padding: 10px;
 }
-.news-card {
-  width: 380px;
-  height: 500px;
-  max-width: 380px;
+
+.search-card {
+  flex: 1 1 calc(33.33% - 30px); /* 3 cards per row, accounting for gap */
+  max-width: calc(33.33% - 30px);
+  height: 450px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   padding: 0;
+  margin: 0;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border: 1px solid #eee;
+  
+}
+
+.search-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .image-container img {
@@ -70,10 +81,11 @@
   display: block;
 }
 
-/* Clamp title to 2 lines */
+
 .news-content h3 {
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -82,23 +94,25 @@
 .news-content p {
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font-size: 15px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 
 /* Title styling */
-.news-card h3 {
+.searrch-card h3 {
   font-size: 18px;
   margin-bottom: 8px;
   color: #333; /* Default text color */
 }
 
 /* Source and date text */
-.news-card .source-date {
+.search-card .source-date {
   font-weight: 500;
   font-size: 15px;
-  color: #555;
+  color:black;
   margin-bottom: 10px;
 }
 
@@ -112,7 +126,6 @@
 
 /* Read more link */
 .read-more-link {
-  color: #0077cc; /* Match button color */
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
@@ -141,3 +154,14 @@ body.dark-mode .BookMarkers-link svg {
   color: white;
 }
 
+body.dark-mode .search-description{
+  color: white;
+}
+
+body.dark-mode .search-title{
+  color: white;
+}
+
+body.dark-mode .search-card:hover {
+  box-shadow: 0 8px 16px rgba(252, 251, 251, 0.2);
+}

@@ -2,25 +2,35 @@ import React from 'react';
 import { useBookmark } from '../components/useBookmark';
 import NewsCard from '../components/NewsCard';
 import '../styles/Bookmarks.css';
+import { Bookmark } from "lucide-react";
 
 const Bookmarks = () => {
-  const { bookmarks } = useBookmark();
+  const { bookmarks, removeBookmark } = useBookmark();
 
   return (
-    <div className="bookmarks-page">
+    <div className="bookmarks-page" >
+      <div className='Bookmarks-header' >
       <h1 className="bookmark-title">Bookmarked Articles</h1>
       <p className="bookmark-subtitle">Your saved articles for later reading.</p>
-      {bookmarks.length > 0 ? (
+      </div>
+      {bookmarks && bookmarks.length > 0 ? (
         <div className="bookmarks-grid">
           {bookmarks.map((article, index) => (
-            <NewsCard key={index} article={article} />
-          ))}
+  <NewsCard
+    key={article.url}
+    article={article}
+    onRemove={() => removeBookmark(article.url)}
+    isBookmarkedPage={true}
+  />
+))}
+
         </div>
       ) : (
-        <>
-        <p className="no-bookmarks" style={{marginLeft:'550px',marginTop:'150px'}}>No bookmarks yet.</p>
-        <p className="no-bookmarks" style={{marginLeft:'500px'}}>Articles you bookmark will appear here.</p>
-      </>
+        <div style={{ marginTop: '70px', textAlign: 'center' }}>
+          <Bookmark size={45} />
+          <h1>No bookmarked articles</h1>
+          <p>Articles you bookmark will appear here.</p>
+        </div>
       )}
     </div>
   );

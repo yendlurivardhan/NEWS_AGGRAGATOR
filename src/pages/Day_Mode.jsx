@@ -33,7 +33,7 @@ const DayMode = () => {
 
   return (
     <button onClick={toggleMode} className="mode-toggle-btn">
-      {isDarkMode ? <Sun size={25} /> : <Moon size={25} />} {/* Toggle icons */}
+      {isDarkMode ? <Sun size={25} /> : <Moon size={22} />} {/* Toggle icons */}
     </button>
   );
 };

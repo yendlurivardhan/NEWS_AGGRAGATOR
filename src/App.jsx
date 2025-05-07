@@ -5,7 +5,7 @@ import Search from "./pages/Search";
 import NewsPages from "./pages/NewsPages";
 import Bookmarks from "./pages/Bookmarks";
 import Navbar from "./components/Navbar";
-import { BookmarkProvider } from "./components/useBookmark"; // ✅
+import { BookmarkProvider } from "./components/useBookmark"; 
 
 function App() {
   return (

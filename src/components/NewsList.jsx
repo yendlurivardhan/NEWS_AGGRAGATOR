@@ -1,6 +1,6 @@
 import React from 'react';
 import NewsCard from './NewsCard';
-import '../styles/NewsList.css';  // Make sure this contains the grid styles
+import '../styles/NewsList.css';  
 
 function NewsList({ articles }) {
   return (

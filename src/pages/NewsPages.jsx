@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
+const API_KEY = import.meta.env.VITE_GNEWS_API_KEY;
 
 const NewsPage = () => {
   const { category } = useParams();  // ✅ get category from URL
@@ -12,8 +12,9 @@ const NewsPage = () => {
     const fetchNews = async () => {
       try {
         const response = await axios.get(
-          `https://newsapi.org/v2/top-headlines?country=us&category=${category || 'general'}&apiKey=${API_KEY}`
+          `https://gnews.io/api/v4/search?q=${category?.toLowerCase() || 'general'}&token=${import.meta.env.VITE_GNEWS_API_KEY}`
         );
+        
         setArticles(response.data.articles);
       } catch (error) {
         console.error("Error fetching news:", error);

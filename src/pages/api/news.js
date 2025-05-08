@@ -9,10 +9,9 @@ const News = () => {
 
   useEffect(() => {
     // Your NewsAPI endpoint with your API key
-    const apiKey = 'YOUR_API_KEY';  // Replace with your actual NewsAPI key
-    const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
-
-    // Fetch data from NewsAPI directly in the frontend
+    const apiKey ="e5d5b4d1e4db79acd47e52209549bf9a" ; 
+    const url = `https://gnews.io/api/v4/search?q=example&token=${apiKey}`;// Fetch data from NewsAPI directly in the frontend
+   
     axios.get(url)
       .then(response => {
         setNews(response.data.articles);  // Set the articles in state

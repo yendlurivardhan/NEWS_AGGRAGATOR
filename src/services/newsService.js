@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const API_KEY = "29a52a5ac6bf35bb06aac56431f3fa2d"
-const BASE_URL = "https://newsapi.org/v2";
+const API_KEY = "e5d5b4d1e4db79acd47e52209549bf9a"
+const BASE_URL = "https://gnews.io/api/v4";
+
 
 // Fetch top headlines
 export const fetchTopHeadlines = async (category = "general") => {

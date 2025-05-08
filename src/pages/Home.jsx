@@ -14,20 +14,24 @@ function Home() {
       setError('');
       try {
         const response = await fetch(
-          `https://newsapi.org/v2/top-headlines?country=us&category=${selectedCategory.toLowerCase()}&apiKey=${import.meta.env.VITE_NEWS_API_KEY}`
+          `https://gnews.io/api/v4/search?q=${selectedCategory.toLowerCase()}&token=${import.meta.env.VITE_GNEWS_API_KEY}`
         );
+        
         const data = await response.json();
-        if (data.status === 'ok') {
+    
+        if (Array.isArray(data.articles)) {
           setArticles(data.articles);
+          setError('');
         } else {
           setError('Failed to fetch articles');
         }
       } catch (err) {
+        console.error(err);
         setError('Something went wrong');
       }
       setLoading(false);
     };
-
+    
     fetchNews();
   }, [selectedCategory]);
 

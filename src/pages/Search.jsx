@@ -17,6 +17,8 @@ const Search = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+ 
+
   useEffect(() => {
     if (query) {
       fetchArticles();
@@ -94,31 +96,30 @@ const Search = () => {
             return (
               <div key={index} className="search-card">
                <div className="image-container">
-  {article.urlToImage ? (
-    <img
-      src={article.urlToImage}
-      alt={article.title || "Article image"}
-      onError={(e) => {
-        e.target.onerror = null; // Prevent infinite fallback loop
-        e.target.src =
-          "https://via.placeholder.com/150?text=Image+Not+Available"; // Placeholder image
-      }}
-      style={{ width: "100%", height: "auto" }}
-    />
-  ) : (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        backgroundColor: "#ddd",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <span>Image Not Available</span>
-    </div>
-  )}
+               {article.image ? (
+  <img
+    src={article.image}
+    alt={article.title || "Article image"}
+    onError={(e) => {
+      e.target.onerror = null;
+      e.target.src = "https://via.placeholder.com/150?text=Image+Not+Available";
+    }}
+  />
+) : (
+  <div
+    style={{
+      width: "100%",
+      height: "100%",
+      backgroundColor: "#ddd",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    }}
+  >
+    <span>Image Not Available</span>
+  </div>
+)}
+
 </div>
 
 

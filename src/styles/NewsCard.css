@@ -133,14 +133,14 @@ body.dark-mode .news-card {
 }
 
 /* Responsive layout for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .news-grid {
     flex-direction: column;
     align-items: center;
   }
 
   .news-card {
-    width: 90%; /* Increase card width on smaller screens */
-    max-width: 100%; /* Allow it to scale on small screens */
+    width: 150%; /* Increase card width on smaller screens */
+    max-width: 200%; /* Allow it to scale on small screens */
   }
 }

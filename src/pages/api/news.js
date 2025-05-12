@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-
 
 const News = () => {
   const [news, setNews] = useState([]);
@@ -8,28 +6,29 @@ const News = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    // Your NewsAPI endpoint with your API key
-    const apiKey ="e5d5b4d1e4db79acd47e52209549bf9a" ; 
-    const url = `https://gnews.io/api/v4/search?q=example&token=${apiKey}`;// Fetch data from NewsAPI directly in the frontend
-   
-    axios.get(url)
-      .then(response => {
-        setNews(response.data.articles);  // Set the articles in state
-        setLoading(false);  // Set loading to false after data is fetched
+    const apiKey = import.meta.env.VITE_GNEWS_API_KEY;
+    const url = `https://gnews.io/api/v4/top-headlines?country=us&token=${apiKey}`;
+
+    fetch(url)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Error ${res.status}: ${res.statusText}`);
+        }
+        return res.json();
       })
-      .catch(error => {
-        setError('Error fetching news');  // Set error message if something goes wrong
-        setLoading(false);  // Set loading to false even if there's an error
+      .then((data) => {
+        setNews(data.articles || []);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError('Failed to fetch news.');
+        console.error(err);
+        setLoading(false);
       });
-  }, []);  // Empty dependency array ensures it runs once when the component mounts
+  }, []);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
-  }
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <div>
@@ -39,7 +38,9 @@ const News = () => {
           <li key={index}>
             <h3>{article.title}</h3>
             <p>{article.description}</p>
-            <a href={article.url} target="_blank" rel="noopener noreferrer">Read more</a>
+            <a href={article.url} target="_blank" rel="noopener noreferrer">
+              Read more
+            </a>
           </li>
         ))}
       </ul>
